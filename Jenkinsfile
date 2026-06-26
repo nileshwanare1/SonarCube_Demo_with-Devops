@@ -31,7 +31,7 @@ pipeline {
                     sonar-scanner \
                     -Dsonar.projectKey=StaticWeb \
                     -Dsonar.sources=. \
-                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.host.url=http://13.233.141.131:9000/ \
                     -Dsonar.login=$SONAR_AUTH_TOKEN
                     '''
 
