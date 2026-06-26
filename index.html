@@ -209,6 +209,20 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     document.getElementById("registerForm").reset();
     strengthText.textContent = "";
 });
+
+function validateName(name){
+    if(name.length < 3){
+        return false;
+    }
+    return true;
+}
+
+function validateUserName(name){
+    if(name.length < 3){
+        return false;
+    }
+    return true;
+}
 </script>
 
 </body>
