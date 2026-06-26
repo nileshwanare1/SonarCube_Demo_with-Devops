@@ -164,10 +164,6 @@
 const passwordInput = document.getElementById("password");
 const strengthText = document.getElementById("strength");
 
-const unusedVar = "Demo";
-const anotherUnused = 100;
-let temp = [];
-
 passwordInput.addEventListener("input", function() {
     const password = passwordInput.value;
 
@@ -183,36 +179,6 @@ passwordInput.addEventListener("input", function() {
     }
 });
 
-function complexValidation(number){
-
-    if(number > 0){
-
-        if(number < 100){
-
-            if(number % 2 === 0){
-
-                if(number > 20){
-
-                    if(number < 80){
-
-                        if(number != 50){
-
-                            console.log(number);
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    }
-
-}
-
 function togglePassword() {
     const passwordField = document.getElementById("password");
 
@@ -222,121 +188,7 @@ function togglePassword() {
         passwordField.type = "password";
     }
 }
-// Duplicate code
-function duplicateFunctionOne(a, b) {
-    if (a > b) {
-        console.log("A");
-    } else {
-        console.log("B");
-    }
-}
 
-function duplicateFunctionTwo(a, b) {
-    if (a > b) {
-        console.log("A");
-    } else {
-        console.log("B");
-    }
-}
-
-// Deeply nested function (High Cognitive Complexity)
-function processUser(user) {
-    if (user) {
-        if (user.active) {
-            if (user.role === "admin") {
-                if (user.age > 18) {
-                    if (user.country === "India") {
-                        if (user.city === "Pune") {
-                            if (user.department === "IT") {
-                                console.log("Valid");
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-// Empty catch block
-try {
-    JSON.parse("{invalid}");
-} catch (e) {
-
-}
-
-// Hardcoded password
-const DB_PASSWORD = "admin123";
-
-// Hardcoded token
-const API_KEY = "123456789abcdef";
-
-// Unused variables
-let unused1 = 100;
-let unused2 = [];
-let unused3 = {};
-let unused4 = "abc";
-
-// Useless assignment
-let x = 10;
-x = 20;
-
-// Infinite loop (detected as bug)
-while(false){
-    console.log("Never executes");
-}
-
-// Duplicate variable
-let temp1 = 10;
-let temp2 = temp1;
-
-// Eval usage
-eval("console.log('Sonar Issue')");
-
-// Console logs
-console.log(DB_PASSWORD);
-console.log(API_KEY);
-
-// Function with too many parameters
-function register(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p){
-    return a;
-}
-
-// Duplicate validation
-function validateEmail(email){
-    if(email.length<5){
-        return false;
-    }
-    return true;
-}
-
-function validateEmailAgain(email){
-    if(email.length<5){
-        return false;
-    }
-    return true;
-}
-
-// Long function
-function veryLongFunction(){
-    let sum=0;
-    for(let i=0;i<1000;i++){
-        sum+=i;
-    }
-    for(let i=0;i<1000;i++){
-        sum+=i;
-    }
-    for(let i=0;i<1000;i++){
-        sum+=i;
-    }
-    for(let i=0;i<1000;i++){
-        sum+=i;
-    }
-    for(let i=0;i<1000;i++){
-        sum+=i;
-    }
-    console.log(sum);
-}
 document.getElementById("registerForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -358,18 +210,6 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     strengthText.textContent = "";
 });
 </script>
-function validateName(name){
-    if(name.length < 3){
-        return false;
-    }
-    return true;
-}
 
-function validateUserName(name){
-    if(name.length < 3){
-        return false;
-    }
-    return true;
-}
 </body>
 </html>
