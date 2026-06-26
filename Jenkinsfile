@@ -3,87 +3,62 @@ pipeline {
     agent any
 
     environment {
-
         IMAGE_NAME = "static-web"
-
     }
 
     stages {
 
         stage('Clone') {
-
             steps {
-
                 git branch: 'main',
-                url: 'https://github.com/nileshwanare1/SonarCube_Demo_with-Devops.git'
-
+                    url: 'https://github.com/nileshwanare1/SonarCube_Demo_with-Devops.git'
             }
-
         }
 
         stage('SonarQube Scan') {
-
             steps {
+                script {
 
-                withSonarQubeEnv('SonarQube') {
+                    def scannerHome = tool 'SonarScanner'
 
-                    sh '''
-                    sonar-scanner \
-                    -Dsonar.projectKey=StaticWeb \
-                    -Dsonar.sources=. \
-                    -Dsonar.host.url=http://13.233.141.131:9000/ \
-                    -Dsonar.login=$SONAR_AUTH_TOKEN
-                    '''
+                    withSonarQubeEnv('SonarQube') {
 
+                        sh """
+                        ${scannerHome}/bin/sonar-scanner \
+                        -Dsonar.projectKey=StaticWeb \
+                        -Dsonar.sources=. \
+                        -Dsonar.sourceEncoding=UTF-8
+                        """
+
+                    }
                 }
-
             }
-
         }
 
         stage('Build Docker Image') {
-
             steps {
-
-                sh 'docker build -t $IMAGE_NAME .'
-
+                sh 'docker build -t ${IMAGE_NAME} .'
             }
-
         }
 
         stage('Remove Old Container') {
-
             steps {
-
                 sh '''
-
                 docker stop static-container || true
-
                 docker rm static-container || true
-
                 '''
-
             }
-
         }
 
         stage('Deploy') {
-
             steps {
-
                 sh '''
-
                 docker run -d \
                 --name static-container \
                 -p 80:80 \
                 static-web
-
                 '''
-
             }
-
         }
-
     }
-
 }
