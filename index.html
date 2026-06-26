@@ -164,6 +164,10 @@
 const passwordInput = document.getElementById("password");
 const strengthText = document.getElementById("strength");
 
+const unusedVar = "Demo";
+const anotherUnused = 100;
+let temp = [];
+
 passwordInput.addEventListener("input", function() {
     const password = passwordInput.value;
 
@@ -178,6 +182,36 @@ passwordInput.addEventListener("input", function() {
         strengthText.className = "strength strong";
     }
 });
+
+function complexValidation(number){
+
+    if(number > 0){
+
+        if(number < 100){
+
+            if(number % 2 === 0){
+
+                if(number > 20){
+
+                    if(number < 80){
+
+                        if(number != 50){
+
+                            console.log(number);
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
 
 function togglePassword() {
     const passwordField = document.getElementById("password");
